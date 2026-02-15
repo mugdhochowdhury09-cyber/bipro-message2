@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>A Letter For You ❤️</title>
+<style>
+body {
+  margin: 0;
+  background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Floating hearts */
+.heart {
+  position: absolute;
+  color: rgba(255,255,255,0.7);
+  animation: float 6s linear infinite;
+  font-size: 20px;
+}
+
+@keyframes float {
+  0% {transform: translateY(100vh);}
+  100% {transform: translateY(-10vh);}
+}
+
+/* Envelope */
+.envelope {
+  width: 300px;
+  height: 200px;
+  background: #fff;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transition: transform 0.5s;
+}
+
+.envelope:hover {
+  transform: scale(1.05);
+}
+
+.flap {
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-bottom: 100px solid #ff6b81;
+  position: absolute;
+  top: -100px;
+  left: 0;
+  transition: transform 1s;
+  transform-origin: bottom;
+}
+
+.letter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  transform: translateY(100%);
+  transition: transform 1s;
+  overflow-y: auto;
+}
+
+.open .flap {
+  transform: rotateX(180deg);
+}
+
+.open .letter {
+  transform: translateY(0);
+}
+
+h2 {
+  color: #ff4d6d;
+}
+
+p {
+  font-size: 16px;
+  color: #333;
+}
+</style>
+</head>
+
+<body>
+
+<div class="envelope" onclick="openLetter(this)">
+  <div class="flap"></div>
+  <div class="letter">
+    <h2>💌 A Special Message 💌</h2>
+    <p>Hey... This is your Bipro ❤️</p>
+    <p>Hope you are well 🌸</p>
+    <p>I am here just to say that you are the most beautiful creature of God 💖✨</p>
+    <p>Your smile is my peace 🌙</p>
+    <p>Your voice is my favorite melody 🎶</p>
+    <p>I have nothing more to say...</p>
+    <h3>1 ❤️ 4 ❤️ 3</h3>
+    <p>Forever yours,<br><b>Bipro 💌</b></p>
+  </div>
+</div>
+
+<script>
+function openLetter(element) {
+  element.classList.toggle("open");
+}
+
+// create floating hearts
+for(let i=0;i<20;i++){
+  let heart = document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="❤️";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.animationDuration=(3+Math.random()*5)+"s";
+  document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
